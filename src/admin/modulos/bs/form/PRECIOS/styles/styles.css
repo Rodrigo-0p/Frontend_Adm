@@ -1,0 +1,25 @@
+
+.PRECIOS_upload > .ant-upload-list > .ant-upload {
+  width: 50% !important;
+  height: 150px !important;
+}
+
+.PRECIOS_upload > .ant-upload-list > .ant-upload-list-item-container > .ant-upload-list-item{
+  width: 100% !important;
+  height: 150px !important;
+}
+
+.ant-Divider{
+  margin: 0px !important;
+  font-size: 14px;
+}
+
+.pagina_PRECIOS{
+  float: left;
+  bottom: 85px;
+  position: fixed;
+  width: 80%;
+  font-size: 12px;
+  margin-left: 4px;
+  color: #909294;
+}

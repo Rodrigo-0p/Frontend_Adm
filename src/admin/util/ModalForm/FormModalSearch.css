@@ -1,0 +1,27 @@
+.ant-modal-footer{
+  background: #e7e7e7;
+}
+.ant-modal-header{
+  background: #e7e7e7;
+}
+.ant-modal-body {
+  background: #ffffff;
+}
+.ant-modal-body {  
+  padding-top: 1px;
+}
+.ant-modal-header>.ant-modal-title {
+  color: rgb(113 117 116);
+}
+
+.ant-modal-footer {
+  padding: 5px;
+}
+
+.modalF9 > .ant-modal-content{
+  padding: 15px 15px 15px 15px;
+  height: 300px;
+}
+.modalF9 > .ant-modal-content > .ant-modal-header{
+  margin-bottom: -18px;
+}

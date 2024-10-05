@@ -1,0 +1,26 @@
+.demo-logo-vertical {
+  height: 50px;
+  margin: 16px;
+  background: rgba(255, 255, 255, .2);
+  border-radius: 26px 10px 10px 26px;
+}
+.ant-layout-content{
+  background: rgb(237 237 237) !important;
+}
+.ant-layout-content {
+  min-height: 79.8vh;
+}
+@media (min-height: 695.20px) {
+  .ant-layout-content {
+    height: 82.6vh;
+  }
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

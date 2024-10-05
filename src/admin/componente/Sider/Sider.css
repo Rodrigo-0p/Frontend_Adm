@@ -1,0 +1,34 @@
+
+.spaceAvatar{
+  margin: 0px 0px 0px 0px;
+}
+.contentUserName{
+  padding: 5px;
+  font-size: 10px;
+  margin-left: -15px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  margin-top: -13px;
+  color: aliceblue;
+}
+.nombreDeusuario{
+  max-width: 74px;
+  padding: 5px; 
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.user{
+  font-weight: 700;
+}
+
+.buttonDropdown{
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  height:100%;
+}

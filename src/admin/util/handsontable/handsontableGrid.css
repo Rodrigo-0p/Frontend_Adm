@@ -1,0 +1,388 @@
+
+.ht_clone_top > .wtHolder > .wtHider > .wtSpreader > table.htCore{
+  width: 100% !important;
+}
+
+.componente-handsontable > .handsontable > .ht_master > .wtHolder > .wtHider > .wtSpreader > table.htCore{
+  width: 100% !important;
+}
+
+
+.handsontable_htLeft {
+  text-align: left;
+}
+.handsontable_htCenter {
+  text-align: center;
+}
+.handsontable_htRight {
+  text-align: right;
+}
+
+.handsontable-upper{
+  text-transform: uppercase;
+}
+
+
+.handsontable_right .area-row .current .highlight {
+  font-size: 0px;
+}
+
+
+.handsontable th {
+  background-color: #b3b7c4 !important;
+  color:#494e66 !important;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+ 
+.handsontable td{
+  background-color: #ffffff00;
+}
+
+.handsontable td, .handsontable th{
+  background: none;
+}
+
+.handsontable tr{
+  background: transparent;
+}
+
+
+.handsontable td, .handsontable th {
+  border-bottom: 1px solid #ffffff2b;
+  border-right: 1px solid #ffffff2b;
+  color: #000000;
+  font-size: 11px;
+}
+
+
+.handsontable td:first-of-type, .handsontable th:first-child, .handsontable th:nth-child(2) {
+  border-left: 1px solid #ffffff2b;
+}
+
+
+.handsontable td.area-row {
+  background: #4e5e6d;
+}
+
+.handsontable tr td {
+  border-bottom: 1px solid #b3b6bf7d;
+}
+
+.handsontableInput {
+  background-color: #e1e4e9;
+  color: #000000;
+}
+
+.wtBorder{
+  background-color: #1890ffa3 !important;
+}
+
+.ht_clone_master {
+  background: #4e5e6d;
+  box-shadow: inset 1px 1px 0 1px #1890ffa3;
+}
+
+.highlighted-cell {
+  background-color: blue !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+
+.ht_master .wtHolder {
+  overflow-x: hidden;
+}  
+
+/* Estilos para ocultar la barra de desplazamiento en Chrome y Firefox */
+/********************************** Estilos para Chrome ********************************************************************/
+.handsontable .wtHolder::-webkit-scrollbar {
+  width: -1px;
+}
+
+.handsontable .wtHolder::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+/******************************* Estilos para Firefox *********************************************************************/
+.handsontable .wtHolder {
+  scrollbar-width: none;
+}
+
+.handsontable .wtHolder::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.handsontable .wtHider.hScrollbar {
+  display: none !important;
+}
+
+.handsontable .wtHider.hScrollbar + .wtHolder {
+  bottom: 0 !important;
+}
+
+/**************************************************************************************************************************/
+/*************************** contextMenu ***************************/
+
+.htContextMenu .ht_master table.htCore{
+  border-color: #fff0;
+}
+
+.htContextMenu table tbody tr td.current, .htContextMenu table tbody tr td.zeroclipboard-is-hover {
+  background: #d3d2d2;
+  color: black;
+}
+.htContextMenu table tbody tr td{
+  color: black; 
+}
+.htContextMenu table tbody tr td .htItemWrapper{
+  font-size: 14px;
+  padding: 6px;
+}
+
+.htContextMenu .htCore,.wtHider,.wtHolder,.wtSpreader, .ht_clone_top{
+  width: auto !important; 
+}
+
+
+.htContextMenu table tbody tr td.htDisabled:hover {
+  background: #4e5e6d3d;
+  color: #918c8c;
+  cursor: default;
+}
+
+/**************************************************************************************************************************/
+/*************************** filters ***************************/
+
+.htUIMultipleSelectHot{
+  border: transparent !important;
+  background: white !important;
+}
+.htUIMultipleSelectHot > .ht_master, .ht_clone_top, .ht_clone_bottom, .ht_clone_left {
+  background: transparent !important;
+  border: transparent !important;
+}
+
+.htDropdownMenu .htCore,.wtHider,.wtHolder,.wtSpreader, .ht_clone_top{
+  width: auto !important; 
+}
+
+.handsontable col.rowHeader {
+  width: 100px;
+}
+
+.htDropdownMenu .ht_master table.htCore{
+  border-color: #fff0;
+}
+
+.htDropdownMenu table tbody tr td{
+  color: black; 
+}
+.htDropdownMenu table tbody tr td .htItemWrapper{
+  font-size: 14px;
+}
+
+.htDropdownMenu .htCore,.wtHider,.wtHolder,.wtSpreader, .ht_clone_top{
+  width: auto !important; 
+}
+
+.htDropdownMenu table tbody tr td.htDisabled:hover {
+  background: #4e5e6d3d;
+  color: #918c8c;
+  cursor: default;
+}
+
+.handsontable .htFiltersMenuLabel {
+  font-size: 0.91em;
+  font-weight: bold;
+  color: #8d8d8d;
+}
+
+.handsontable .htUIClearAll a, .handsontable .htUISelectAll a {
+  font-size: 0.85em;
+  font-weight: bold;
+}
+.handsontable .htFiltersMenuCondition .htUIInput input, .handsontable .htFiltersMenuValue .htUIMultipleSelectSearch input{
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.handsontable span.colHeader.withStyles.columnSorting:before{
+  right: 0% !important;
+  left: -12px;
+}
+
+.handsontable .htFiltersActive .changeType {
+  border: 1px solid #32445530;
+  color: #ffffff;
+  background-color: #85848473;
+}
+
+.handsontable td.htSearchResult {
+  background: #536477;
+  color: #ffffffc4;
+}
+/* ---------------------  button select ----------------------------- */
+.htSelectEditor{
+  background: #4e5e6d;
+  color: #ffffffed;
+  font-size: 11px
+}
+.htSelectEditor > option{
+  background: #6c7986;
+  color: white;
+}
+/* ---------------------  opcion ----------------------------- */
+select.ht_editor_visible{
+  border-color: #1890ff;
+}
+
+.handsontable .wtSpreader{
+  color: #f0f8ffcc;
+}
+
+.handsontable.listbox tr:hover td, .handsontable.listbox tr td.current {
+  background: #4e5e6d;
+  color: white;
+}
+
+.handsontable.listbox tr:hover td {
+  background: #737b83;
+  color: white;
+}
+
+.handsontable.listbox td, .handsontable.listbox th, .handsontable.listbox tr:first-child td, .handsontable.listbox tr:first-child th, .handsontable.listbox tr:last-child th {
+  border-color: #fdfdfd4d;
+}
+
+.handsontable.listbox .ht_master table {
+  border-right: 1px solid #dcdcdc !important;
+}
+
+.handsontable .htAutocompleteArrow {
+  font-size: 9px;
+  color: #b7b3b3e8;
+}
+
+.handsontable_opcion > .ht_master > .wtHolder > .wtHider > .wtSpreader > .htCore {
+  border: 1px solid #898989;
+  position: fixed;
+}
+
+.handsontable_opcion > .ht_master > .wtHolder > .wtHider > .wtSpreader > .htCore > tbody > tr > td.handsontable_opcion  {
+  background: #ffffff;
+  color: black;
+  font-size: 12px;
+}
+
+.handsontable_opcion > .ht_master > .wtHolder > .wtHider > .wtSpreader > .htCore > tbody > tr > td.handsontable_opcion:hover {
+  background: #4e5e6d;
+  color: white;
+}
+
+
+.handsontable_opcion > .ht_master > .wtHolder > .wtHider > .wtSpreader > .htCore > tbody > tr > td.current {
+  background: #4e5e6d;
+  color: white;
+}
+
+/* ---------------------  button search ----------------------------- */
+#newIconoLupa-img-2{
+  width: 11px;
+  margin: 0px 5px;
+  margin-top: -1px;
+}
+
+#newIconoLupa-img{
+  width: 15px;
+  margin: 0px 5px;
+  float: left;
+  margin-top: -1px;
+}
+
+.button-iconSearch{
+  color: rgb(0 0 0 / 69%);
+  border: 0px;
+  height: 24px;
+  margin: 0px 2px 0px;
+  padding: 0px;
+  background: transparent;
+  line-height: 1.75;
+  border-radius: 1px;
+  text-transform: none;
+  font-weight: bold;
+  font-size: 12px;  
+}
+
+.button-iconSearch:hover {
+  text-decoration: none;
+  background-color: rgb(165 165 165 / 27%);
+}
+
+.handsontable .htCheckboxRendererInput {
+  height: 16px;
+  width: 16px;
+}
+
+.htCheckboxRendererLabel input.htCheckboxRendererInput {
+  margin-right: 5px;
+}
+
+Input.htCheckboxRendererInput {  
+  accent-color: #768189 !important;
+}
+
+.htCheckboxRendererInput:hover {  
+  accent-color: #46525b7e;
+}
+
+.htDimmed > .htCheckboxRendererInput{  
+  accent-color: #43586fb0;
+}
+
+#button_iconsBinoculars{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background: transparent;
+  border-color: #76ffff00;
+  margin: -1px 0px -2px;
+}
+
+#button_iconsBinoculars > img{
+  margin: -10px 0px -4px !important;
+}
+
+.componente-handsontable{
+  position: initial;
+  background: #878da2;
+  padding: 0px 0px 7px;
+  border-radius: 1px 4px 4px;
+}
+
+
+/* multipleheader */
+.handsontable td, .handsontable th, .handsontable th:last-child {
+  border-bottom: 1px solid #b5b1b1;
+}
+
+.c-red{
+  background-color:#792727;
+}
+
+.handsontable tr:has(td.current) {
+  background: #d1d6e6a6 !important
+}
+
+.handsontable{
+  background: #ffffff;
+  /* #f4f7fd */
+  /* border-left: 0.1px solid #cccccc; */
+  /* border-bottom: 0.1px solid #cccccc; */
+  /* border-right: 0.1px solid #cccccc; */
+}
+
+.handsontable .unwraptext {
+  white-space: nowrap;
+  max-width: 0px !important;
+}

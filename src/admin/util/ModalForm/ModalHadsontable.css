@@ -1,0 +1,71 @@
+
+Th:has(.handsontable_htLeft) {
+  text-align: left;
+}
+.handsontable_htCenter {
+  text-align: center;
+}
+.handsontable_htRight {
+  text-align: right;
+}
+
+.handsontable-upper{
+  text-transform: uppercase;
+}
+
+.handsontable tr:has(td.current) {
+  background: #eae6e6;
+  color: rgb(26 25 25);
+}
+
+.handsontable td, .handsontable th{
+  background-color: transparent;
+}
+
+.handsontable th {
+  background-color: #cccccc !important;
+  color: #000000bd !important;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+
+.handsontable tr:first-child td, .handsontable tr:first-child th {
+  border-top: 1px solid #6f6565;
+}
+
+.handsontable td, .handsontable th {
+  background-color: transparent;
+}
+
+.handsontable .htDimmed {
+  color: #000;
+}
+
+.buscador-input{
+  width: 99%;
+  padding: 0px 0px 6px;
+  text-align: right;
+}
+
+.input-change{
+  padding: 4px 0 4px;
+}
+.css-i4bv87-MuiSvgIcon-root{
+  font-size: 17 !important;
+  margin-bottom: -14 !important;
+}
+
+.hot-scroll-container {    
+  overflow: auto;    
+}
+.hot-scroll-container .hot {
+  margin: 0;
+}
+
+#no-data-message {
+  color: #6f6363;
+  text-align: center;
+  top: -114px;
+  left: 50%;
+  transform: translate(0%, -512%);
+}

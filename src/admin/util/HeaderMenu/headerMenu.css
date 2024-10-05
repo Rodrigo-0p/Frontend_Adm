@@ -1,0 +1,41 @@
+.button-cancelar-ocultar-visible-grid{
+  visibility: collapse;
+}
+
+.button-buscar-ocultar-visible{
+  visibility: hidden !important;
+  display: none !important;
+}
+
+.paper-header-menu-button{
+  margin: 1px;
+  height: 30px;
+  background: #3b4c5c00;
+  box-shadow: 2px 2px 1px 1px rgb(0 0 0 / 21%);
+  border: none;
+  background: linear-gradient(0deg, #e6f3ff 0%, #fffbfb80 100%);
+}
+
+.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+  background: #e2effb;
+}
+
+.stylesCancelar{
+  background: linear-gradient(0deg,#babece9c 0%,#ffffff00 100%);
+  width: 26px !important;
+  height: 28px;
+}
+
+.css-1ps6pg7-MuiPaper-root{
+  background-color: #ededed !important;
+  border-radius: 5px !important;
+}
+
+
+.paper-header-menu-button{
+  margin: 1px;
+  box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2);
+  border: none;
+  color:#eee !important;
+  background: linear-gradient(0deg, #e6f3ff 0%, #fffbfb80 100%);
+}
