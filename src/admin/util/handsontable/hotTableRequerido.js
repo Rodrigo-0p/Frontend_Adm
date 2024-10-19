@@ -43,7 +43,7 @@ export const hotTableRequerido = async (ref,formName,importa_insertDefault = fal
             }else if( (items[element.data]?.length < 0  || 
                       items[element.data] === undefined || 
                       items[element.data] === null      || 
-                      items[element.data] === ""        ) && !items.insertDefault){//vtmonocr
+                      items[element.data] === ""        )){//vtmonocr
               Addband  = true;
               var IndexColumn  =  ref.grid[formName].current.hotInstance.propToCol(element.data);              ;
               columnaRequerido = {'label':element.title,'ID':element.data, indexRow:i, indexComun:IndexColumn}

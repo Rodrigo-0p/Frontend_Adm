@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import VSERVICIO       from './view'
-import Main, { desactivarSpinner }            from '../../../../util/Main';
+import Main, { desactivarSpinner }            from '../../../../../util/Main';
 import mainIncial      from './objetoIncial/mainInicial';
 import mainColumn      from './column/mainModal';
 import mainUrl         from './url/mainUrl'
@@ -99,9 +99,7 @@ const SERVICIO = memo(() => {
     
       refCab.current.dataCanDet = JSON.parse(JSON.stringify(content));
       refDet.current?.hotInstance.loadData(content);
-      setTimeout(()=>{                
-        setTimeout(()=>Main.setFocusedRowIndex(0,undefined,refDet,idComp),10);        
-      },15);
+      
     } catch (error) {
       desactivarSpinner()
       console.error(error);
@@ -120,7 +118,7 @@ const SERVICIO = memo(() => {
     let update_insert_detalle = []    
     if(refDet.current){
       update_insert_detalle = refDet.current.hotInstance.getSourceData();
-      const valor = await  Main.hotTableRequerido(idGrid,idComp,true);
+      const valor = await Main.hotTableRequerido(idGrid,idComp,true);
       if(valor.Addband){
         setTimeout(()=>{
           Main.message.warning({
@@ -312,7 +310,7 @@ const SERVICIO = memo(() => {
       banRef.current.manejaF7 = false;
       inicialForm()
     }else{
-      let valor = await  Main.hotTableRequerido(idGrid,idComp,false);
+      let valor = await  Main.hotTableRequerido(idGrid,idComp);
       if(valor.Addband){
         setTimeout(()=>{
           Main.message.warning({
@@ -339,7 +337,6 @@ const SERVICIO = memo(() => {
         banRef.current.indexRow = rowIndex;
       },40)
     }
-    
   } 
   const deleteRow = ()=>{
     if(banRef.current.idFocus){
@@ -509,8 +506,8 @@ const SERVICIO = memo(() => {
   }
   const getParmas = (retornaNull = false) =>{
     var data = {
-      id        : retornaNull ? null : form.getFieldValue('id')        !== undefined ? form.getFieldValue('id')        : null,
-      titulo    : retornaNull ? null : form.getFieldValue('titulo')    !== undefined ? form.getFieldValue('titulo')    : null,
+      cod_servicio : retornaNull ? null : form.getFieldValue('cod_servicio') !== undefined ? form.getFieldValue('cod_servicio'): null,
+      titulo       : retornaNull ? null : form.getFieldValue('titulo')       !== undefined ? form.getFieldValue('titulo')      : null,
     }
     return data
   }
@@ -549,7 +546,7 @@ const SERVICIO = memo(() => {
     }
   }
   const handleKeyDown = (e)=>{
-    if(e.target.id === 'id' && !banRef.current.manejaF7) e.preventDefault();
+    if(e.target.id === 'cod_servicio' && !banRef.current.manejaF7) e.preventDefault();
     if (['Enter', 'Tab'].includes(e.key)) {
       e.preventDefault()
       switch (e.target.id) {
@@ -559,7 +556,7 @@ const SERVICIO = memo(() => {
         case "descripcion":
           document.getElementById('titulo').focus();
         break;
-        case "id":
+        case "cod_servicio":
           document.getElementById('titulo').focus();
         break;
         default:
@@ -634,7 +631,7 @@ const SERVICIO = memo(() => {
             if(banRef.current.indice >= banRef.current.mitad_data){
               let data = { indice     : refCab.current.data.length, 
                            limite     : data_len,
-                           cod_empresa : sessionStorage.cod_empresa
+                           cod_empresa : sessionStorage.getItem('cod_empresa')
                           };  
               try {
                 Main.Request(mainUrl.url_listar_cab,'POST',data).then((resp)=>{

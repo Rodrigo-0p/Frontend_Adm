@@ -19,7 +19,7 @@ const AppRouter = () => {
         <Route path={"/home"}   component={HOME} />
         {
           route.map((ruta,indice)=>(
-            <Route key={indice} path={ruta.path}  component={ruta.component}   />
+            <Route key={indice} path={ruta.path} component={ruta.component} />
           ))
         }      
         <Route component={NotFound}/>

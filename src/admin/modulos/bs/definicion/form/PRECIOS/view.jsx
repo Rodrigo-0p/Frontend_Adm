@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import Main            from '../../../../util/Main';
+import Main            from '../../../../../util/Main';
 import mainColumn      from './column/mainModal';
 
 const view = memo((props) => {

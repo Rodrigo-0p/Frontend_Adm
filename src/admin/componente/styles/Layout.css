@@ -8,11 +8,11 @@
   background: rgb(237 237 237) !important;
 }
 .ant-layout-content {
-  min-height: 79.8vh;
+  min-height: 81vh;
 }
 @media (min-height: 695.20px) {
   .ant-layout-content {
-    height: 82.6vh;
+    height: 83.6vh;
   }
 }
 

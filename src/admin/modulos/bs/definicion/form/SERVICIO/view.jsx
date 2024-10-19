@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import Main            from '../../../../util/Main';
+import Main            from '../../../../../util/Main';
 import mainColumn      from './column/mainModal';
 
 const View_Servicio = memo(({form , FormName  , onChange    , handleKeyDown,handleCheckbox ,
@@ -36,7 +36,7 @@ const View_Servicio = memo(({form , FormName  , onChange    , handleKeyDown,hand
               </Main.Col>
 
               <Main.Col span={6}>
-                <Main.Form.Item name="cod_servicio" label={<label style={{ width: '60px' }}>ID</label>}>
+                <Main.Form.Item name="cod_servicio" label={<label style={{ width: '60px' }}>Codigo</label>}>
                   <Main.Input onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} className={`${FormName}_BLOQUEO`} style={{width:'calc(104% - 4px)',textAlign:'right'}}/>
                 </Main.Form.Item>
               </Main.Col>

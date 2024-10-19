@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import VACERCADE       from './view'
-import Main            from '../../../../util/Main';
+import Main            from '../../../../../util/Main';
 import mainIncial      from './objetoInicial/mainInical'
 import mainUrl         from './url/mainUrl';
 import './styles/styles.css';
@@ -25,6 +25,7 @@ const ACECADE = memo(() => {
 	Main.useHotkeys('f7', (e) => {
     e.preventDefault();
 	});
+
   // USEREF
   const buttonSaveRef       = React.useRef();
   // USESTATE
@@ -33,6 +34,7 @@ const ACECADE = memo(() => {
   const [fileList    , setFileList    ] = React.useState([]);
   const banRef              = React.useRef({indice:0      , id_cabecera:'' , b_bloqueo:false, manejaF7:false, mitad_data:(data_len / 2)})
   const refCab              = React.useRef({ data      :[], dataCan  :[]   , delete:[]   , activateCambio:false});  
+ 
   React.useEffect(()=>{
     if(defaultOpenKeys.length <= 0) history.push("/home");
     else{
@@ -120,7 +122,6 @@ const ACECADE = memo(() => {
       rowCab = JSON.parse(JSON.stringify(refCab.current.data[banRef.current.indice]));
     }
     
-    
     let url          = mainUrl.url_get_serial+sessionStorage.cod_empresa;
     let row          = await Main.GenerarUpdateInsert([rowCab],url,'cod_acercade',[],['titulo']);
     let updateInsert = row.updateInsert;
@@ -164,6 +165,7 @@ const ACECADE = memo(() => {
       Main.Request(mainUrl.url_abm,"POST",data).then(async(resp) => {
         Main.desactivarSpinner()
         if(resp.data.res >= 1){
+
           refCab.current.delete = []
           Main.message.success({
             content  : `Procesando Correctamente!!`,

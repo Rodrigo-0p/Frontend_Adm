@@ -10,10 +10,9 @@ import iconInfo             from '../../assets/images/info.png';
 import iconError            from '../../assets/icons/error.svg';
 import Layout               from '../../admin/componente/Layout';
 import { useHistory }       from 'react-router-dom';
+import 	  FormModalSearch 	from './ModalForm/FormModalSearch.js';
 import 	  ModalHadsontable  from './ModalForm/ModalHadsontable';
-import HandsontableGrid,{
-      setFocusedRowIndex
-    }     from './handsontable/Handsontable.js';
+import HandsontableGrid     from './handsontable/Handsontable.js';
 import { hotTableRequerido }from './handsontable/hotTableRequerido.js';
 
 import HeaderMenu           from './HeaderMenu/HeaderMenu';
@@ -199,9 +198,9 @@ const main = {
   Layout,
   HeaderMenu,
   	// --------------------
+  FormModalSearch,
   ModalHadsontable,
 	HandsontableGrid,
-  setFocusedRowIndex,
   hotTableRequerido,
 	// --
   guardar,

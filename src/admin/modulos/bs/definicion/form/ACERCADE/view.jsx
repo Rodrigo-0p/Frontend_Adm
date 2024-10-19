@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import Main            from '../../../../util/Main';
+import Main            from '../../../../../util/Main';
 
 const View_Acercade = memo(({ form        , FormName    , onChange     ,fileList,onPreview,setPreviewImage  ,
                               previewImage, handleupload, handleKeyDown,handleCheckbox    ,handleInputChange,
@@ -25,7 +25,7 @@ const View_Acercade = memo(({ form        , FormName    , onChange     ,fileList
                 </Main.Form.Item>
               </Main.Col>
               <Main.Col span={6}>
-                <Main.Form.Item name="cod_acercade" label={<label style={{ width: '62px' }}>ID</label>}>
+                <Main.Form.Item name="cod_acercade" label={<label style={{ width: '62px' }}>Codigo</label>}>
                   <Main.Input onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} className={`${FormName}_BLOQUEO`} style={{width:'calc(104% - 4px)',textAlign:'right'}}/>
                 </Main.Form.Item>
               </Main.Col>
@@ -85,7 +85,7 @@ const View_Acercade = memo(({ form        , FormName    , onChange     ,fileList
 
               </Main.Upload>
               
-          </Main.ImgCrop>
+            </Main.ImgCrop>
 
           </Main.Col>
           

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import VPRECIOS        from './view'
-import Main            from '../../../../util/Main';
+import Main            from '../../../../../util/Main';
 import mainIncial      from './objetoInicial/mainInicial';
 import mainUrl         from './url/mainUrl'
 import './styles/styles.css';
@@ -352,9 +352,7 @@ const PRECIOS = memo(() => {
     
       refCab.current.dataCanDet = JSON.parse(JSON.stringify(content));
       refDet.current?.hotInstance.loadData(content);
-      setTimeout(()=>{                
-        setTimeout(()=>Main.setFocusedRowIndex(0,undefined,refDet,idComp),10);
-      },15);
+      
     } catch (error) {
       console.error(error);
     }

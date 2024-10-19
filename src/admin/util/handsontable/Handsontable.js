@@ -2,8 +2,6 @@ import React                                from 'react';
 import { HotTable,HotColumn  }              from '@handsontable/react';
 import {registerLanguageDictionary, esMX }  from 'handsontable/i18n';
 import Handsontable                         from 'handsontable' // No eliminar
-import FormModalSearch                      from '../ModalForm/FormModalSearch'
-import ModalHadsontable                     from '../ModalForm/ModalHadsontable'
 import Main                                 from '../Main';
 import iconsBinoculars                      from '../../../assets/icons/binocular.svg';
 import iconsPromo                      from '../../../assets/icons/promo.png';
@@ -12,7 +10,6 @@ import './handsontableGrid.css';
 
 
 registerLanguageDictionary(esMX);
-
 
 let mes             = ["Enero"  , "Febrero","Marzo" , "Abril"    ,"Mayo"  , "Junio"  ,"Julio" ,"Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 let semana          = ["Domingo", "lunes"  ,"Martes", "Miercoles","Jueves", "Viernes","Sábado"];
@@ -213,64 +210,7 @@ export const setFocusCloseModal = (e,idComponet) =>{
   }
 }
 
-var g_RowFocus = {}
-var g_RowFocus_valor = {}
-const g_setRowFocus = (e = {},idComponet,rowIndex,columnIndex)=>{
-  
-  if(Main._.isNull(e)) e = {};
 
-  if(Object.keys(g_RowFocus).length  > 0){
-
-    e.rowIndex_ant    = g_RowFocus_valor?.rowIndex    ? g_RowFocus_valor?.rowIndex    : 0 ;
-    e.columnIndex_ant = g_RowFocus_valor?.columnIndex ? g_RowFocus_valor?.columnIndex : 0 ;
-    
-    g_RowFocus_valor.rowIndex    = rowIndex
-    g_RowFocus_valor.columnIndex = columnIndex
-    
-  }else{
-    e.rowIndex_ant     = rowIndex;
-    e.columnIndex_ant  = columnIndex;
-
-    g_RowFocus_valor.rowIndex    = rowIndex
-    g_RowFocus_valor.columnIndex = columnIndex
-  }
-
-  e.rowIndex     = rowIndex
-  e.columnIndex  = columnIndex
-  if(idComponet.includes(Object.keys(g_RowFocus))){
-    g_RowFocus[idComponet] = [e]
-  }else{    
-    g_RowFocus = {...g_RowFocus,...{
-      [idComponet]:[e]
-    }}
-  }
-}
-export const g_getRowFocus =(idComponet=false)=>{
-  if(idComponet)return g_RowFocus[idComponet]
-  else return g_RowFocus
-}
-export const setFocusedRowIndex = (rowIndex = false,columnIndex = false, refData={}, idComp='')=>{
-  let valorRow  = g_getRowFocus(idComp);
-  
-  if(valorRow){
-    
-    if(Main._.isUndefined(valorRow[0])) return
-
-    valorRow[0].rowIndex    = rowIndex    >= 0 && rowIndex    !== false ? rowIndex    : valorRow[0].rowIndex    >= 0 ? valorRow[0].rowIndex    : 0;
-    valorRow[0].columnIndex = columnIndex >= 0 && columnIndex !== false ? columnIndex : valorRow[0].columnIndex >= 0 ? valorRow[0].columnIndex : 0;
-  
-    if(valorRow[0].rowIndex === false) valorRow[0].rowIndex      = 0;
-    if(valorRow[0].rowIndex_ant === -1) valorRow[0].rowIndex_ant = 0;
-
-    var cell     = refData.current.__hotInstance.getCell(valorRow[0].rowIndex, valorRow[0].columnIndex);
-    let cell_ant = document.querySelector('td.current')
-    
-    if(!Main._.isNull(cell_ant)){
-      cell_ant.classList.remove('current')
-    } 
-    if(!cell?.classList.value.includes("current")) cell?.classList?.add('current')
-  }
-}
 
 var bloqueoCabecera_id = []
 export const setCambiosPendiente = (idCom,valor)=>{
@@ -306,7 +246,7 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
   const previousEditRef = React.useRef(null);  
   const refModalData    = React.useRef()
   const refKeyDown      = React.useRef({KeyDown:false,banEdit:true,inputChange:''})
-
+  const refGlobal       = React.useRef({g_RowFocus:{}, g_RowFocus_valor:{}})  
   // USESTATE
   const [shows          , setShows           ] = React.useState(false);
 
@@ -318,6 +258,63 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
     setCambiosPendiente(idComp,false);
     // eslint-disable-next-line 
   },[])
+
+  const g_setRowFocus = (e = {},idComponet,rowIndex,columnIndex)=>{
+    
+    if(Main._.isNull(e)) e = {};
+
+    if(Object.keys(refGlobal.current.g_RowFocus).length  > 0){
+
+      e.rowIndex_ant    = refGlobal.current.g_RowFocus_valor?.rowIndex    ? refGlobal.current.g_RowFocus_valor?.rowIndex    : 0 ;
+      e.columnIndex_ant = refGlobal.current.g_RowFocus_valor?.columnIndex ? refGlobal.current.g_RowFocus_valor?.columnIndex : 0 ;
+      
+      refGlobal.current.g_RowFocus_valor.rowIndex    = rowIndex
+      refGlobal.current.g_RowFocus_valor.columnIndex = columnIndex
+      
+    }else{
+      e.rowIndex_ant     = rowIndex;
+      e.columnIndex_ant  = columnIndex;
+
+      refGlobal.current.g_RowFocus_valor.rowIndex    = rowIndex
+      refGlobal.current.g_RowFocus_valor.columnIndex = columnIndex
+    }
+
+    e.rowIndex     = rowIndex
+    e.columnIndex  = columnIndex
+    if(idComponet.includes(Object.keys(refGlobal.current.g_RowFocus))){
+      refGlobal.current.g_RowFocus[idComponet] = [e]
+    }else{    
+      refGlobal.current.g_RowFocus = {...refGlobal.current.g_RowFocus,...{
+        [idComponet]:[e]
+      }}
+    }
+  }
+  const g_getRowFocus =(idComponet=false)=>{
+    if(idComponet)return refGlobal.current.g_RowFocus[idComponet]
+    else return refGlobal.current.g_RowFocus
+  }
+  const setFocusedRowIndex = (rowIndex = false,columnIndex = false, refData={}, idComp='')=>{
+    let valorRow  = g_getRowFocus(idComp);
+    
+    if(valorRow){
+      
+      if(Main._.isUndefined(valorRow[0])) return
+
+      valorRow[0].rowIndex    = rowIndex    >= 0 && rowIndex    !== false ? rowIndex    : valorRow[0].rowIndex    >= 0 ? valorRow[0].rowIndex    : 0;
+      valorRow[0].columnIndex = columnIndex >= 0 && columnIndex !== false ? columnIndex : valorRow[0].columnIndex >= 0 ? valorRow[0].columnIndex : 0;
+    
+      if(valorRow[0].rowIndex === false) valorRow[0].rowIndex      = 0;
+      if(valorRow[0].rowIndex_ant === -1) valorRow[0].rowIndex_ant = 0;
+
+      var cell     = refData.current.__hotInstance.getCell(valorRow[0].rowIndex, valorRow[0].columnIndex);
+      let cell_ant = document.querySelector('td.current')
+      
+      if(!Main._.isNull(cell_ant)){
+        cell_ant.classList.remove('current')
+      } 
+      if(!cell?.classList.value.includes("current")) cell?.classList?.add('current')
+    }
+  }
 
   var currentColumn = 0;
   const setCurrentColumn = (e)=>{
@@ -604,13 +601,13 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
     Main.activarSpinner()
     try {
         var method       = tipo;
-        data.valor       = 'null'
+        data.valor       = null
         data.cod_empresa = sessionStorage.getItem('cod_empresa');
         data.dependencia = dependencia;
         await Main.Request(url,method,data)
         .then((response)=>{        
-            if(response.data.rows){
-              dataRows = response.data.rows;
+            if(response && response.data){
+              dataRows = response.data;
             }                    
         });   
       Main.desactivarSpinner()
@@ -661,6 +658,7 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
 
     // FUNCION F9
     if(e.keyCode === 120){
+      
       e.preventDefault();
       let valor   = g_getRowFocus(idComp);
       let element = refData?.current?.hotInstance?.getCellMeta(valor[0].rowIndex,valor[0].columnIndex);
@@ -695,7 +693,7 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
      
           setShows(true);          
           refModal.current.dataParams   = { dependencia : ArrayDataDependencia
-                                          , cod_empresa:sessionStorage.cod_empresa
+                                          , cod_empresa : sessionStorage.getItem('cod_empresa')
                                           }
           refModal.current.idInput      = element.prop;
           refModal.current.ModalTitle   = columnModal.title[0][element.prop];
@@ -953,16 +951,17 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
             var data = {valor,'cod_empresa':sessionStorage.getItem('cod_empresa'),dependencia:ArrayDataDependencia};
             await Main.Request( url,'POST', data).then(async resp => {			
               if(resp.status === 200 ){
-                if(resp.data.outBinds.ret === 1){
+                let result = resp.data[0]
+                if(Main.nvl(result.p_mensaje,'N') == 'N'){
   
-                  if((Object.keys(resp.data.outBinds).length - 1 ) > 2){
-                    for(var i in resp.data.outBinds){
+                  if((Object.keys(resp.data).length - 1 ) > 2){
+                    for(var i in resp.data){
                       if(i !== 'ret' && i !== 'p_mensaje'){
                       let columnIndex  = refData.current.hotInstance.propToCol(i)                  
                       if(!Main._.isNull(refData.current.__hotInstance.toVisualColumn(columnIndex))){
-                        refData.current.__hotInstance.setDataAtCell(valorIndex[0],columnIndex,resp.data.outBinds[i])
+                        refData.current.__hotInstance.setDataAtCell(valorIndex[0],columnIndex,resp.data[i])
                        }else{
-                        refData.current.__hotInstance.view.settings.data[valorIndex[0]][i] = resp.data.outBinds[i];
+                        refData.current.__hotInstance.view.settings.data[valorIndex[0]][i] = resp.data[i];
                        }
                       }                              
                     }
@@ -970,13 +969,13 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
                       cellRow:row[0].rowIndex,
                     });
                   }else{
-                    var nombreColumn = columnModal[nameColumn] ? columnModal[nameColumn][1].data : Object.keys(resp.data.outBinds)[0];
+                    var nombreColumn = columnModal[nameColumn] ? columnModal[nameColumn][1].data : Object.keys(resp.data)[0];
                     let columnIndex  = refData.current.hotInstance.propToCol(nombreColumn)
                     if(!Main._.isNull(refData.current.__hotInstance.toVisualColumn(columnIndex))){
-                      let DESC         = resp.data.outBinds[nombreColumn];
+                      let DESC         = resp.data[0][nombreColumn];
                       refData.current.__hotInstance.setDataAtCell(row[0].rowIndex,columnIndex,DESC)
                     }else{
-                      refData.current.__hotInstance.view.settings.data[valorIndex[0]][nombreColumn] = resp.data.outBinds[nombreColumn];
+                      refData.current.__hotInstance.view.settings.data[valorIndex[0]][nombreColumn] = resp.data[0][nombreColumn];
                     }
                   }
                   setFocusCloseModal({valor,rowIndex:row[0].rowIndex_ant,columnIndex:columIndex,valida:true},idComp)
@@ -1011,14 +1010,14 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
                     refData?.current?.hotInstance.deselectCell()
                     setEventGlobal(-120,idComp);
                     if(columnModal[nameColumn]){
-                      if((Object.keys(resp.data.outBinds).length - 1 ) > 2){
-                        for(var a in resp.data.outBinds){
+                      if((Object.keys(resp.data).length - 1 ) > 2){
+                        for(var a in resp.data){
                           if(a !== 'ret' && a !== 'p_mensaje'){
                           let columnIndex  = refData.current.hotInstance.propToCol(a)                  
                           if(!Main._.isNull(refData.current.__hotInstance.toVisualColumn(columnIndex))){
-                            refData.current.__hotInstance.setDataAtCell(valorIndex[0],columnIndex,resp.data.outBinds[a])
+                            refData.current.__hotInstance.setDataAtCell(valorIndex[0],columnIndex,resp.data[a])
                            }else{
-                            refData.current.__hotInstance.view.settings.data[valorIndex[0]][a] = resp.data.outBinds[a];
+                            refData.current.__hotInstance.view.settings.data[valorIndex[0]][a] = resp.data[a];
                            }
                           }        
                         }
@@ -1039,7 +1038,7 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
                     refData.current.hotInstance.removeHook("beforeKeyDown", KeyDown);
                     refKeyDown.current.KeyDown = true
                     setTimeout(()=>{
-                      Main.alert(resp.data.outBinds.p_mensaje, '¡Atención!', 'alert', 'OK',false,okMensaje)
+                      Main.alert(resp.data[0].p_mensaje, '¡Atención!', 'alert', 'OK',false,okMensaje)
                     })
                     
                   }
@@ -1182,7 +1181,7 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
     setShows(!shows)
     setEventGlobal(120,idComp)
     Main.modifico(idComp)
-    let row     = Main.g_getRowFocus(idComp);
+    let row     = g_getRowFocus(idComp);
     let element = refData.current.hotInstance.getCellMeta(row[0].rowIndex,row[0].columnIndex);
 
     if(columnModal.config[element.prop]){
@@ -1235,7 +1234,7 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
   }
   const cerrarModal = async (e)=>{
     setShows(e)
-    let row     = Main.g_getRowFocus(idComp);
+    let row     = g_getRowFocus(idComp);
     refData?.current?.hotInstance?.selectCell(row[0].rowIndex,row[0].columnIndex);
     
     setTimeout(() => {
@@ -1249,13 +1248,13 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
   }
   const onChangeModal = async (e) => {
     let valor = e.target.value;
-    if (valor.trim().length === 0) valor = 'null';
+    if (valor.trim().length === 0) valor = null;
     let url = refModal.current.url_buscador;
     let data = { valor, ...refModal.current.dataParams }
     try {
       await Main.Request(url, 'POST', data).then(resp => {
         if (resp.status === 200) {
-          refModalData.current.loadData(resp.data.rows)
+          refModalData.current.loadData(resp.data)
         }
       });
     } catch (error) {
@@ -1491,13 +1490,13 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
 
   return (
     <div className={`componente-${idComp}`}>
-      <FormModalSearch
+      <Main.FormModalSearch
         setShowsModal={(e)=>cerrarModal(e)}
         open={shows}
         title={shows ? refModal.current.ModalTitle : refModal.current.ModalTitle}
         className='Modal-contenet'
         component={
-          <ModalHadsontable
+          <Main.ModalHadsontable
             refData={refModalData}
             data={shows ? refModal.current.data : refModal.current.data}
             columns={shows ? refModal.current.modalColumn : refModal.current.modalColumn}

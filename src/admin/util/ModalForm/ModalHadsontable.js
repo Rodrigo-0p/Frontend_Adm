@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import Handsontable   from 'handsontable';
-import Input          from '@mui/material/Input/Input';
-import InputAdornment from '@mui/material/InputAdornment/inputAdornmentClasses';
+import Input          from '@mui/material/Input';
+import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon     from '@mui/icons-material/Search';
 
 import 'handsontable/dist/handsontable.full.min.css';

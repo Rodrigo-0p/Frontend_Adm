@@ -1,0 +1,24 @@
+.NoViewpreviewImg {
+  opacity: 0;
+  position: absolute;
+}
+
+.CONFIGUR_upload > .ant-upload-list > .ant-upload {
+  width: 60% !important;
+  height: 300px !important;
+}
+
+.CONFIGUR_upload > .ant-upload-list > .ant-upload-list-item-container > .ant-upload-list-item{
+  width: 100% !important;
+  height: 300px !important;
+}
+
+.pagina_CONFIGUR{
+  float: left;
+  bottom: 85px;
+  position: fixed;
+  width: 80%;
+  font-size: 12px;
+  margin-left: 4px;
+  color: #909294;
+}
