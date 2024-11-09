@@ -4,6 +4,7 @@ import CONFIGUR from "../../admin/modulos/bs/config/form/CONFIGUR/CONFIGUR";
 import ACECADE  from "../../admin/modulos/bs/definicion/form/ACERCADE/ACECADE";
 import SERVCIO  from "../../admin/modulos/bs/definicion/form/SERVICIO/SERVICIO";
 import PRECIOS  from "../../admin/modulos/bs/definicion/form/PRECIOS/PRECIOS";
+import EMPRESAS from "../../admin/modulos/bs/definicion/form/EMPRESA/EMPRESA";
 
 const Route = [
   {
@@ -18,6 +19,9 @@ const Route = [
   },{
     path: '/bs/configur',
     component:CONFIGUR
+  },{
+    path: '/bs/empresa',
+    component: EMPRESAS,
   }
 ]
 

@@ -14,7 +14,9 @@ import Main from '../../util/Main';
 const SiderMain     = memo(({defaultSelectedKeys, defaultOpenKeys,CloseSession}) => {
 
   const cod_empresa = sessionStorage.getItem('cod_empresa');
-  const imgEmpresa  = process.env.REACT_APP_BASEURL+`/private/${cod_empresa}/EMPRESA/logoEmpresa.jpg`;
+  const extencion   = sessionStorage.getItem('extencion_img');
+  
+  const imgEmpresa  = process.env.REACT_APP_BASEURL+`/private/${cod_empresa}/EMPRESA/empresa-img${cod_empresa}.${extencion}`;
 
 
  const resulMenu    = JSON.parse(sessionStorage.getItem('menu'));
