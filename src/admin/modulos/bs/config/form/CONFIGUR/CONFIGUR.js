@@ -1,3 +1,36 @@
+// import React, { memo } from 'react';
+// import Layout          from '../../../../../componente/Layout';
+// import Main            from '../../../../../util/Main';
+
+// const CONFIGUR = memo(() => {
+  
+//   const FormName   = 'CONFIGUR';
+//   const TituloList = "";
+//   var vname_img    = 'configur-img' ;
+
+  
+//   let defaultSelectedKeys = [FormName]
+//   let defaultOpenKeys     = Main.getMenuKeysForCodForm(FormName);
+
+//   console.log(defaultOpenKeys);
+
+//   return (    
+//     <Layout defaultSelectedKeys={defaultSelectedKeys} defaultOpenKeys={defaultOpenKeys}>
+//       <Main.Spin spinning={false} delay={500}>
+
+//         <div className="paper-header">
+//           <Main.Title level={4} className="title-color">
+//             {TituloList}<div level={5} className="title-color-forname">{FormName}</div>
+//           </Main.Title>
+//         </div>
+//         CONFIGUR
+//       </Main.Spin>
+//     </Layout>    
+//   );
+// });
+
+// export default CONFIGUR;
+
 import React, { memo } from 'react';
 import VCONFIGUR       from './view';
 import Main            from '../../../../../util/Main';
@@ -19,6 +52,8 @@ const CONFIGUR = memo(() => {
 
   let defaultSelectedKeys = [FormName]
   let defaultOpenKeys     = Main.getMenuKeysForCodForm(FormName);
+
+  console.log(defaultOpenKeys);
 
   Main.useHotkeys(Main.guardar, (e) =>{
 		e.preventDefault();
@@ -44,7 +79,7 @@ const CONFIGUR = memo(() => {
   React.useEffect(()=>{
     if(defaultOpenKeys.length <= 0) history.push("/home");
     else{
-      // Main.activarSpinner()
+      Main.activarSpinner()
       inicialForm()
     } 
     // eslint-disable-next-line
@@ -63,7 +98,8 @@ const CONFIGUR = memo(() => {
     setUploadImg([])
     let newKey              = Main.uuidID();
     valor.key_cab           = newKey;
-    valor.usuario           = sessionStorage.usuario;
+    valor.usuario           = sessionStorage.getItem('usuario');
+    valor.cod_empresa       = sessionStorage.getItem('cod_empresa');
     valor.fecha_alta        = Main.moment().format('DD/MM/YYYY').toString();    
     if(!f7_delete){
       ver_bloqueo()
@@ -195,7 +231,7 @@ const CONFIGUR = memo(() => {
     }
 
     let url_cab         = mainUrl.url_get_serialCab+sessionStorage.getItem('cod_empresa');
-    let row_cab         = await Main.GenerarUpdateInsert([rowCab],url_cab,'cod_configuracion',[],['titulo']);
+    let row_cab         = await Main.GenerarUpdateInsert([rowCab],url_cab,'cod_configuracion',[],['cod_empresa']);
     let updateInsertCab = row_cab.updateInsert;
     let delete_cab      = refCab.current.delete[0] && refCab.current.delete?.length > 0 && refCab.current.delete !== undefined ? refCab.current.delete : []
     let keyCabecera 		= row_cab.rowsAux.length > 0 ? row_cab.rowsAux[0]?.cod_configuracion : form.getFieldValue('cod_configuracion');
@@ -326,9 +362,7 @@ const CONFIGUR = memo(() => {
         },
       });
       Main.desactivarSpinner();
-      Main.setModifico(FormName);
     }
-    
   }
   const saveImg = async (cod_configuracion,activarMensaje = true)=> new Promise(async(resolve,reject)=>{
     if(fileList && fileList.length > 0 && fileList[0].uid !== '-1' && (uploadImg.name && uploadImg.name.length > 0)){
@@ -741,7 +775,7 @@ const CONFIGUR = memo(() => {
     // eslint-disable-next-line 
   },[])
 
-  return (
+  return ( 
     <Main.Layout defaultSelectedKeys={defaultSelectedKeys} defaultOpenKeys={defaultOpenKeys}>
       <Main.Spin spinning={false} delay={500}>
 

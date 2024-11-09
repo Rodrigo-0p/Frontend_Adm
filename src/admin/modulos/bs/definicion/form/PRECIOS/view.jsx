@@ -57,7 +57,7 @@ const view = memo((props) => {
         <Main.Col span={8} style={{textAlign:'center'}} >
           <Main.Row>
             <Main.Col span={24} style={{height:'224px',overflow:'auto'}} >
-              <Main.Divider className='ant-Divider' orientation="left">Img Precio</Main.Divider>
+              <Main.Divider className={`${props.FormName}_ant-Divider ant-Divider`} orientation="left">Img Precio</Main.Divider>
               <Main.Image
                   className="NoViewpreviewImg"
                   alt="example"
@@ -97,7 +97,7 @@ const view = memo((props) => {
             </Main.Col>
             {/*****************************************************************/}
             <Main.Col span={24} style={{height:'224px',overflow:'auto'}}>
-              <Main.Divider className='ant-Divider' orientation="right">Fondo</Main.Divider>
+              <Main.Divider className={`${props.FormName}_ant-Divider ant-Divider`} orientation="right">Fondo</Main.Divider>
               <Main.Image
                 className="NoViewpreviewImg"
                 alt="example"
@@ -108,7 +108,7 @@ const view = memo((props) => {
                 }}
                 src={props.previewImageFondo}
               />
-              <Main.ImgCrop 
+              <Main.ImgCrop
                 wrapperStyle={{
                 display: 'none',
               }}

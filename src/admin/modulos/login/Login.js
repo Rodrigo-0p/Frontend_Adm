@@ -4,10 +4,10 @@ import { UserOutlined, LockOutlined
   , EyeTwoTone, EyeInvisibleOutlined}  from '@ant-design/icons';
 import './Login.css';
 import Main                            from '../../util/Main'
-import Particles                       from '../../componente/particles/ParticlesBg'; 
+
 
 const Login = memo(({history}) => {
-
+  
   const refPass      = React.useRef()
   const refPass_reset= React.useRef()
   const [form]       = Form.useForm();
@@ -150,6 +150,7 @@ const Login = memo(({history}) => {
       }
     }
   }
+  if (sessionStorage.getItem("token")) history.push("/home");
 
   return (
     <Main.Spin spinning={false} delay={500}>

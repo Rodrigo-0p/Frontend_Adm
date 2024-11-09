@@ -94,7 +94,7 @@ const PRECIOS = memo(() => {
       }
     }
 
-    let AditionalData = [{"usuario": sessionStorage.getItem('usuario'),"cod_empresa": sessionStorage.getItem('cod_empresa')}];
+    let AditionalData = {"usuario": sessionStorage.getItem('usuario'),"cod_empresa": sessionStorage.getItem('cod_empresa')};
     
     let data = {
       updateInsertCab,
@@ -237,14 +237,16 @@ const PRECIOS = memo(() => {
   }
   const funcionBuscar = (e)=>{
     if(e){
-      if(!refCab.current.activateCambio){
-    		Main.setModifico(FormName);
-    		getData(false,true);
-    	}else{
-        Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
-    	}
+      Main.setModifico(FormName);
+      getData(false,true);
     }else{
-      manejaF7()
+      if(!refCab.current.activateCambio){
+        manejaF7()
+      }else{
+        Main.desactivarSpinner()
+        e = true;
+        Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
+      }
     };
     Main.setBuscar(FormName,!e)
   }
@@ -486,7 +488,6 @@ const PRECIOS = memo(() => {
 		}
 
   }
-  
   const handleKeyUp = async(e) => {
 		if(e.keyCode === 40){e.preventDefault(); Main.activarSpinner(); rightData();}
 		if(e.keyCode === 38){e.preventDefault(); Main.activarSpinner(); leftData(); }

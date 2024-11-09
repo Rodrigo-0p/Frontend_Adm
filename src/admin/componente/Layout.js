@@ -22,26 +22,26 @@ const Home = memo((props) => {
   
   return (
     <>
-    <Layout hasSider={true}>
-      <SessionTime CloseSession={CloseSession} />
-      <SiderMain defaultSelectedKeys={props.defaultSelectedKeys} defaultOpenKeys={props.defaultOpenKeys}  CloseSession={CloseSession} />
+      <Layout hasSider={true}>
+        <SessionTime CloseSession={CloseSession} />
+        <SiderMain defaultSelectedKeys={props.defaultSelectedKeys} defaultOpenKeys={props.defaultOpenKeys}  CloseSession={CloseSession} />
 
-      <Layout className="site-layout" id="system-layout">
-        <HeaderMain colorBgContainer={'linear-gradient(197deg, rgba(0, 21, 41, 0.97) 0%, rgb(78 93 108) 100%)'}/>
+        <Layout className="site-layout" id="system-layout">
+          <HeaderMain colorBgContainer={'linear-gradient(197deg, rgba(0, 21, 41, 0.97) 0%, rgb(78 93 108) 100%)'}/>
 
-        <Content style={{ margin: '4px 4px 0px'}}>
-          <div className='ant-layout-content' style={{ background:colorBgContainer,borderRadius: borderRadiusLG}}>
-            {props.children}         
-          </div>
-        </Content>
+          <Content style={{ margin: '4px 4px 0px'}}>
+            <div className='ant-layout-content' style={{ background:colorBgContainer,borderRadius: borderRadiusLG}}>
+              {props.children}         
+            </div>
+          </Content>
 
-        <Footer style={{textAlign: 'center'}}>
-          {sessionStorage.getItem('empresa')} ©{new Date().getFullYear()}
-        </Footer>
+          <Footer style={{textAlign: 'center'}}>
+            {sessionStorage.getItem('empresa')} ©{new Date().getFullYear()}
+          </Footer>
+          
+        </Layout> 
         
       </Layout>
-      
-    </Layout>
     </>
   );
 });

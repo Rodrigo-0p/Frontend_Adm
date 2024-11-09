@@ -279,14 +279,15 @@ const ACECADE = memo(() => {
   }
   const funcionBuscar = (e)=>{
     if(e){
-      if(!refCab.current.activateCambio){
-    		Main.setModifico(FormName);
-    		getData(false,true);
-    	}else{
-        Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
-    	}
+      Main.setModifico(FormName);
+    	getData(false,true);    	
     }else{
-      manejaF7()
+      if(!refCab.current.activateCambio){
+        manejaF7()
+    	}else{
+        e = true
+        Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
+    	}	      
     };
     Main.setBuscar(FormName,!e)
   }
@@ -494,6 +495,7 @@ const ACECADE = memo(() => {
       if( banRef.current.id_cabecera !== row.cod_acercade ) banRef.current.id_cabecera = row.cod_acercade;
       loadForm(refCab.current.data,index);
     }else{
+      Main.desactivarSpinner()
       Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
     }
   } 
@@ -535,6 +537,7 @@ const ACECADE = memo(() => {
        }
 
     }else{
+      Main.desactivarSpinner();
       Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
 		}
 

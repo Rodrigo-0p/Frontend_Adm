@@ -12,7 +12,7 @@ const columnModal = {
 };
 
 const columnDet = [
-  { data: 'cod_redes_sociales' , title: 'Cod. Redes' , width : 32  , className: 'htLeft'   , requerido:true , readOnly:false  , filter:false      }, 
+  { data: 'cod_redes_sociales' , title: 'Cod. Redes' , width : 36  , className: 'htLeft'   , requerido:true , readOnly:false  , filter:true      }, 
   { data: 'desc_redes_sociales', title: 'Descripción', width : 60  , className: 'htLeft'   , readOnly:true  , filter:false   }, 
   { data: 'url'                , title: 'Url'        , width : 150 , className: 'htLeft'   , requerido:true , readOnly:false  , filter:false      }, 
   { data: 'activo'             , title: 'Activar'    , width : 20  , className: 'htCenter' , type:'checkbox', readOnly:false  , checkbox:['S','N']},

@@ -23,3 +23,15 @@
   margin-left: 4px;
   color: #909294;
 }
+
+.PRECIOS_ant-Divider::before {
+  background: #00000061
+}
+
+.PRECIOS_ant-Divider.ant-divider-with-text-right::after{
+  background: #00000061
+}
+
+.PRECIOS_ant-Divider.ant-divider-with-text-left::after{
+  background: #00000061
+}

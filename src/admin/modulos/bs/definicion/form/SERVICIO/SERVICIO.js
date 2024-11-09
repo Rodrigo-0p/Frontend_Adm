@@ -408,15 +408,17 @@ const SERVICIO = memo(() => {
     }
   }
   const funcionBuscar = (e)=>{
-    if(e){
-      if(!refCab.current.activateCambio){
+    if(e){     
     		Main.setModifico(FormName);
-    		getData(false,true);
-    	}else{
-        Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
-    	}
+    		getData(false,true);    	
     }else{
-      manejaF7()
+      if(!refCab.current.activateCambio){
+        manejaF7()
+      }else{
+        e =  true
+        Main.desactivarSpinner();
+        Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
+      }
     };
     Main.setBuscar(FormName,!e)
   }
@@ -614,6 +616,7 @@ const SERVICIO = memo(() => {
       if( banRef.current.id_cabecera !== row.cod_servicio ) banRef.current.id_cabecera = row.cod_servicio;
       loadForm(refCab.current.data,index);
     }else{
+      Main.desactivarSpinner()
       Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
     }
   } 
@@ -655,6 +658,7 @@ const SERVICIO = memo(() => {
        }
 
     }else{
+      Main.desactivarSpinner()
       Main.alert('Hay cambios pendientes. ¿Desea guardar los cambios?','Atencion!','confirm','Guardar','Cancelar',guardar,()=>Main.Modal.destroyAll())
 		}
 

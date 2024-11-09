@@ -4,8 +4,8 @@ import mainColumn      from './column/mainModal';
 
 const View_Confugur = memo((props) => {
   const maxFocus = [{
-    id:props.idComp      ,
-    hasta:"activar" ,
+    id:props.idComp,
+    hasta:"activo" ,
     newAddRow:true ,    
   }];
 
@@ -17,13 +17,13 @@ const View_Confugur = memo((props) => {
           <Main.Row gutter={[12,2]}>
 
             <Main.Col span={16}>
-              <Main.Form.Item name="titulo" label={<label style={{ width: '62px' }}><span style={{ color: 'red' }}>*</span>Titulo</label>}>
+              <Main.Form.Item name="titulo" label={<label style={{ width: '62px' }}>Titulo</label>}>
                 <Main.Input  style={{width:'calc(104% - 13px)'}}
-                      onKeyDown={props.handleKeyDown} 
-                      onKeyUp={props.handleKeyUp} 
-                      onChange={props.handleInputChange} 
-                      onInput={Main.mayuscula} className={`requerido`}                        
-                  />
+                  onKeyDown={props.handleKeyDown} 
+                  onKeyUp={props.handleKeyUp} 
+                  onChange={props.handleInputChange} 
+                  onInput={Main.mayuscula}  
+                />
               </Main.Form.Item>
             </Main.Col>
 
@@ -103,7 +103,8 @@ const View_Confugur = memo((props) => {
           </div>
         </Main.Col>
 
-      </Main.Row>
+      </Main.Row> 
+
     </Main.Form>
   );
 });
