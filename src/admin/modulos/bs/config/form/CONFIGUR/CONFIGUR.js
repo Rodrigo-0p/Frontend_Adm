@@ -1,37 +1,4 @@
-// import React, { memo } from 'react';
-// import Layout          from '../../../../../componente/Layout';
-// import Main            from '../../../../../util/Main';
-
-// const CONFIGUR = memo(() => {
-  
-//   const FormName   = 'CONFIGUR';
-//   const TituloList = "";
-//   var vname_img    = 'configur-img' ;
-
-  
-//   let defaultSelectedKeys = [FormName]
-//   let defaultOpenKeys     = Main.getMenuKeysForCodForm(FormName);
-
-//   console.log(defaultOpenKeys);
-
-//   return (    
-//     <Layout defaultSelectedKeys={defaultSelectedKeys} defaultOpenKeys={defaultOpenKeys}>
-//       <Main.Spin spinning={false} delay={500}>
-
-//         <div className="paper-header">
-//           <Main.Title level={4} className="title-color">
-//             {TituloList}<div level={5} className="title-color-forname">{FormName}</div>
-//           </Main.Title>
-//         </div>
-//         CONFIGUR
-//       </Main.Spin>
-//     </Layout>    
-//   );
-// });
-
-// export default CONFIGUR;
-
-import React, { memo } from 'react';
+import * as React      from 'react';
 import VCONFIGUR       from './view';
 import Main            from '../../../../../util/Main';
 import mainIncial      from './objetoInicial/mainInical'
@@ -45,15 +12,13 @@ const TituloList = "Configuración";
 var vname_img    = 'configur-img' ;
 var data_len     = 50;
 
-const CONFIGUR = memo(() => {
+const CONFIGUR =  React.memo(() => {
 
   const history   = Main.useHistory();
   const [form]    = Main.Form.useForm();
 
   let defaultSelectedKeys = [FormName]
   let defaultOpenKeys     = Main.getMenuKeysForCodForm(FormName);
-
-  console.log(defaultOpenKeys);
 
   Main.useHotkeys(Main.guardar, (e) =>{
 		e.preventDefault();

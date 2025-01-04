@@ -1,5 +1,5 @@
-import React,{ memo} from "react";
-import View from "./view";
+import * as React  from "react";
+import View        from "./view";
 // import Main         from '../../../../util/Main';
 import Main        from "../../../../../util/Main";
 import mainInicial from './objetoInicial/mainInicial'
@@ -12,7 +12,7 @@ const TituloList = "Empresa";
 var   vname_img  = 'empresa-img';
 var   data_len   = '50';
 
-const EMPRESAS  = memo(() => {
+const EMPRESAS  =  React.memo(() => {
     const history = Main.useHistory();
     const [form]  = Main.Form.useForm();
 
@@ -74,14 +74,13 @@ const EMPRESAS  = memo(() => {
     document.getElementById("mensaje").textContent        = "";
   }
   const addRow = () =>{
-    return
     refCab.current.delete     = [];
     banRef.current.manejaF7  = false;
     inicialForm()
   }
   const getParmas = (retornaNull = false) =>{
     var data = {
-      cod_empresa     : retornaNull ? null : Main.nvl(form.getFieldValue('cod_empresa'),null)         ,
+      cod_empresa     : retornaNull ? null : Main.nvl(form.getFieldValue('cod_empresa'),sessionStorage.getItem('cod_empresa')),
       cod_funcionario : retornaNull ? null : Main.nvl(sessionStorage.getItem('cod_funcionario'), null),
       cod_usuario     : retornaNull ? null : Main.nvl(sessionStorage.getItem('cod_usuario'),null)     ,
       nombre          : retornaNull ? null : Main.nvl(form.getFieldValue('nombre'),null)              ,

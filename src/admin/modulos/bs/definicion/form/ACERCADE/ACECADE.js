@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import * as React      from 'react';
 import VACERCADE       from './view'
 import Main            from '../../../../../util/Main';
 import mainIncial      from './objetoInicial/mainInical'
@@ -10,7 +10,7 @@ const TituloList = "Acerca De";
 var vname_img    = 'acercade-img';
 var data_len     = 50;
 
-const ACECADE = memo(() => {
+const ACECADE =  React.memo(() => {
 
   const history   = Main.useHistory();
   const [form]    = Main.Form.useForm();

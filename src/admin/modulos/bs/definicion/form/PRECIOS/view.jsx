@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
-import Main            from '../../../../../util/Main';
-import mainColumn      from './column/mainModal';
+import * as React   from 'react';
+import Main         from '../../../../../util/Main';
+import mainColumn   from './column/mainModal';
 
-const view = memo((props) => {
+const view =  React.memo((props) => {
   return (
     <Main.Form size="small" autoComplete="off" form={props.form} style={{ marginTop: '1px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '10px' }}>
       <Main.Row gutter={[8,2]}>

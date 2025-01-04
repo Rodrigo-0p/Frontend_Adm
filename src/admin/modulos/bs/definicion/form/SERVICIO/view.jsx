@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
-import Main            from '../../../../../util/Main';
-import mainColumn      from './column/mainModal';
+import * as React  from 'react';
+import Main        from '../../../../../util/Main';
+import mainColumn  from './column/mainModal';
 
-const View_Servicio = memo(({form , FormName  , onChange    , handleKeyDown,handleCheckbox ,
+const View_Servicio =  React.memo(({form , FormName  , onChange    , handleKeyDown,handleCheckbox ,
                              handleInputChange, handleKeyUp , fileList     ,onPreview      ,
                              setPreviewImage  , previewImage, handleupload ,idComp         ,
                              refDet           , setLastFocusNext           ,setClickCell}) => {

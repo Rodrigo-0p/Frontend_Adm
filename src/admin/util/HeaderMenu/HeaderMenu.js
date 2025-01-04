@@ -1,4 +1,4 @@
-import React, { memo }   from 'react';
+import * as React        from 'react';
 import { Button }        from 'antd';
 import nuevo             from '../assets/icons/add.svg';
 import deleteIcon        from '../assets/icons/delete.svg';
@@ -19,7 +19,7 @@ import atras             from '../assets/icons/logout.svg';
 
 import './headerMenu.css';
 
-const HeaderMenu = memo(({AddForm, SaveForm , deleteRows    , cancelar     , 
+const HeaderMenu =  React.memo(({AddForm, SaveForm , deleteRows    , cancelar     , 
                           NavigateArrow     , refs          , formName     ,
                           reporte           , funcionBuscar , 
                           buttonBuscar      , activateAtras , funcionAtras ,

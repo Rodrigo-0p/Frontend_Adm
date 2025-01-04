@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import Layout          from '../../componente/Layout';
-import Main            from '../../util/Main';
-const Home = memo(() => {
+import * as React  from 'react';
+import Layout      from '../../componente/Layout';
+import Main        from '../../util/Main';
+const Home =  React.memo(() => {
   
   const FormName   = 'HOME';
   const TituloList = "";

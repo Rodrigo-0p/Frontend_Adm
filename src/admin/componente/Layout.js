@@ -1,4 +1,4 @@
-import React,{memo}       from 'react';
+import * as React         from 'react';
 import { Layout, theme }  from 'antd';
 import SiderMain          from './Sider/Sider';
 import SessionTime        from "./sessionTime";
@@ -10,7 +10,7 @@ import './styles/form.css';
 
 const { Content, Footer} = Layout;
 
-const Home = memo((props) => {
+const Home =  React.memo((props) => {
   const history = useHistory();
 
   const CloseSession = (e) => {

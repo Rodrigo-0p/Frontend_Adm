@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
-import Main            from '../../../../../util/Main';
-import mainColumn      from './column/mainModal';
+import * as React  from 'react';
+import Main        from '../../../../../util/Main';
+import mainColumn  from './column/mainModal';
 
-const View_Confugur = memo((props) => {
+const View_Confugur =  React.memo((props) => {
   const maxFocus = [{
     id:props.idComp,
     hasta:"activo" ,

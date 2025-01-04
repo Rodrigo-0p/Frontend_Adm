@@ -1,4 +1,4 @@
-import React                                from 'react';
+import * as React                                from 'react';
 import { HotTable,HotColumn  }              from '@handsontable/react';
 import {registerLanguageDictionary, esMX }  from 'handsontable/i18n';
 import Handsontable                         from 'handsontable' // No eliminar

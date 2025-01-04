@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
-import VPRECIOS        from './view'
-import Main            from '../../../../../util/Main';
-import mainIncial      from './objetoInicial/mainInicial';
-import mainUrl         from './url/mainUrl'
+import * as React  from 'react';
+import VPRECIOS    from './view'
+import Main        from '../../../../../util/Main';
+import mainIncial  from './objetoInicial/mainInicial';
+import mainUrl     from './url/mainUrl'
 import './styles/styles.css';
 
 const FormName      = 'PRECIOS';
@@ -13,7 +13,7 @@ var vname_img_fondo = 'precios-fondo-img';
 var data_len     = 50;
 
 
-const PRECIOS = memo(() => {
+const PRECIOS =  React.memo(() => {
   
   const history   = Main.useHistory();
   const [form]    = Main.Form.useForm();

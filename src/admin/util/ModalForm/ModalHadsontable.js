@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import * as React     from 'react';
 import Handsontable   from 'handsontable';
 import Input          from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -8,7 +8,7 @@ import 'handsontable/dist/handsontable.full.min.css';
 import 'handsontable/dist/handsontable.full.css';
 import './ModalHadsontable.css';
 
-const ModalHadsontable = memo(({ refData = null, columns=[] , data        ,
+const ModalHadsontable =  React.memo(({ refData = null, columns=[] , data        ,
                                  onChange      , eventoClick, idComp = '' }) => {
   const hotRef      = React.useRef();
   const inputFocus  = React.useRef();

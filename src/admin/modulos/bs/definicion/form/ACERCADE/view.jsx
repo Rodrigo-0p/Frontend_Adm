@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import Main            from '../../../../../util/Main';
+import * as React  from 'react';
+import Main        from '../../../../../util/Main';
 
-const View_Acercade = memo(({ form        , FormName    , onChange     ,fileList,onPreview,setPreviewImage  ,
+const View_Acercade =  React.memo(({ form        , FormName    , onChange     ,fileList,onPreview,setPreviewImage  ,
                               previewImage, handleupload, handleKeyDown,handleCheckbox    ,handleInputChange,
                               handleKeyUp}) => {
   return (

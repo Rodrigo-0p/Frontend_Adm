@@ -1,7 +1,7 @@
-import React, {memo} from "react";
-import Main          from '../../../../../util/Main';
+import * as React from "react";
+import Main      	from '../../../../../util/Main';
 import './styles/styles.css'
-const View_Empresas = memo(({form , FormName  , onChange    , handleKeyDown,handleCheckbox ,
+const View_Empresas =  React.memo(({form , FormName  , onChange    , handleKeyDown,handleCheckbox ,
                              handleInputChange, handleKeyUp , fileList     , onPreview      ,
                              setPreviewImage  , previewImage, handleupload , })=>{
 		return(

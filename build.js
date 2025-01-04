@@ -15,11 +15,12 @@ build({
     '.woff': 'file', // Configuración para cargar archivos .woff como archivos
     '.woff2': 'file' // Configuración para cargar archivos .woff2 como archivos
   },
+  jsx: 'automatic', // Utiliza el modo automático para JSX
   define: {
     'process.env.REACT_APP_BASEURL'   : JSON.stringify(REACT_APP_BASEURL)  ,
   },
-  format: 'cjs',       // Formato de salida
-  minify: true,        // Minificar el código
+  format:'cjs',       // Formato de salida
+  minify:true,        // Minificar el código
   // minifyIdentifiers:true, // Cambia la variable en nombres mas corto
   minifySyntax:true,
   // sourcemap: false     // Generar sourcemap

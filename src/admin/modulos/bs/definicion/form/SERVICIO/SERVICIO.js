@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import * as React      from 'react';
 import VSERVICIO       from './view'
 import Main, { desactivarSpinner }            from '../../../../../util/Main';
 import mainIncial      from './objetoIncial/mainInicial';
@@ -12,7 +12,7 @@ const TituloList = "Nuestro Servicio";
 var vname_img    = 'servicio-img';
 var data_len     = 50;
 
-const SERVICIO = memo(() => {
+const SERVICIO =  React.memo(() => {
   
   const history   = Main.useHistory();
   const [form]    = Main.Form.useForm();

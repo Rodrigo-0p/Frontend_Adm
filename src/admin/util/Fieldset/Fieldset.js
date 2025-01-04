@@ -1,7 +1,7 @@
-import React, { memo } from 'react'
+import * as React, { memo } from 'react'
 import './fieldset.css'
 
-export default memo(function ContainerText(props) {
+export default  React.memo(function ContainerText(props) {
     return (
         <>
             <div className="contenedor" style={{marginTop:props.margenTop, width:props.anchoContenedor,marginLeft:props.marginLeft}}>

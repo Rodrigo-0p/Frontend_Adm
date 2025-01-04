@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
+import * as React, { memo } from 'react';
 import Particles       from 'react-tsparticles';
 import {loadFull }     from 'tsparticles'
 
-const ParticlesBg = memo(() => {
+const ParticlesBg =  React.memo(() => {
 
   const particlesInit = async (main) => {
     console.log(main);

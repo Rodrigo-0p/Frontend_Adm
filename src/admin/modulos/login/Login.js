@@ -1,4 +1,4 @@
-import React, { memo }                 from 'react';
+import * as React                      from 'react';
 import { Form, Input, Button, message} from 'antd';
 import { UserOutlined, LockOutlined
   , EyeTwoTone, EyeInvisibleOutlined}  from '@ant-design/icons';
@@ -6,7 +6,7 @@ import './Login.css';
 import Main                            from '../../util/Main'
 
 
-const Login = memo(({history}) => {
+const Login =  React.memo(({history}) => {
   
   const refPass      = React.useRef()
   const refPass_reset= React.useRef()
