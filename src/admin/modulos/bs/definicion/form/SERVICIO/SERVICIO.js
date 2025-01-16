@@ -1,6 +1,6 @@
 import * as React      from 'react';
 import VSERVICIO       from './view'
-import Main, { desactivarSpinner }            from '../../../../../util/Main';
+import Main            from '../../../../../util/Main';
 import mainIncial      from './objetoIncial/mainInicial';
 import mainColumn      from './column/mainModal';
 import mainUrl         from './url/mainUrl'
@@ -101,7 +101,7 @@ const SERVICIO =  React.memo(() => {
       refDet.current?.hotInstance.loadData(content);
       
     } catch (error) {
-      desactivarSpinner()
+      Main.desactivarSpinner()
       console.error(error);
     }
   }

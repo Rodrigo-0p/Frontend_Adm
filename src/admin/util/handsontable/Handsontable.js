@@ -756,9 +756,7 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
               if(setLastFocusNext && columnModal[maxFocus[0].hasta]?.length > 0){
                 let dataRow   = refData.current.__hotInstance.getSourceData()[rowIndex]
                 let rowCount  = refData?.current?.hotInstance?.getSourceData()?.length;
-                // let rowcolumn = refData.current.__hotInstance.propToCol(maxFocus[0].hasta)
                 rowCount      = (rowCount - 1) === -1 ? 0 : rowCount - 1
-                // let nexColumn = refData.current.__hotInstance.getSelected()[0][1]
                 if(rowIndex === rowCount ) setLastFocusNext(e,dataRow,rowCount,rowIndex);
               }
             }
@@ -816,28 +814,28 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
           let columnIndex = maxFocus ? refData.current.hotInstance.propToCol(maxFocus[0].hasta) : (columns.length - 1)
           let dataRow =  refData.current.__hotInstance.getSourceData()[rowIndex]
           if(row.columnIndex === columnIndex && rowIndex === (rowCount - 1) && e.keyCode === 13){
-            refData?.current?.hotInstance.deselectCell()            
+            // refData?.current?.hotInstance.deselectCell()            
             setTimeout(async()=>{
-              let valor = await Main.hotTableRequerido(idGrid,idComp);
-              if(valor.Addband){      
-                setTimeout(()=>{
-                  Main.message.warning({
-                    content  : `Ingrese ${valor.columnaRequerido.label} para Continuar!!`,
-                    className: 'custom-class',
-                    duration : `${2}`,
-                    style    : {marginTop: '2vh'},
-                  });
-                  refData.current.__hotInstance.selectCell(valor.columnaRequerido.indexRow,valor.columnaRequerido.indexComun);
-                  refData.current.__hotInstance.scrollViewportTo(valor.columnaRequerido.indexRow,valor.columnaRequerido.indexComun)
-                },4)
-                return
-              }else{
+              // let valor = await Main.hotTableRequerido(idGrid,idComp);
+              // if(valor.Addband){      
+              //   setTimeout(()=>{
+              //     Main.message.warning({
+              //       content  : `Ingrese ${valor.columnaRequerido.label} para Continuar!!`,
+              //       className: 'custom-class',
+              //       duration : `${2}`,
+              //       style    : {marginTop: '2vh'},
+              //     });
+              //     refData.current.__hotInstance.selectCell(valor.columnaRequerido.indexRow,valor.columnaRequerido.indexComun);
+              //     refData.current.__hotInstance.scrollViewportTo(valor.columnaRequerido.indexRow,valor.columnaRequerido.indexComun)
+              //   },4)
+              //   return
+              // }else{
                 if(maxFocus){
                   if(maxFocus[0].newAddRow === true && maxFocus[0].id === idComp)setLastFocusNext(e,dataRow,rowCount,rowIndex);  
                 }else{
                   setLastFocusNext(e,dataRow,rowCount,rowIndex);  
                 }
-              }
+              // }
             })
           }else if(rowIndex === (rowCount - 1) && e.keyCode === 40){
             if(rowScroll?.row !== rowIndex){
@@ -988,7 +986,6 @@ const HandsontableGrid = ({ refData                    , columns = []         , 
                       let rowCount    = refData?.current?.hotInstance?.getSourceData()?.length;
                       let columnIndex = refData.current.__hotInstance.propToCol(maxFocus[0].hasta)                  
                       let nexColumn   = valorIndex[1]
-                      // refData.current.__hotInstance.getSelected()[0][1]
                       rowCount        = (rowCount - 1) === -1 ? 0 : rowCount - 1
                       if(row[0].rowIndex === rowCount && columnIndex === nexColumn) setLastFocusNext(e,dataRow,rowCount,row[0].rowIndex);
                     }

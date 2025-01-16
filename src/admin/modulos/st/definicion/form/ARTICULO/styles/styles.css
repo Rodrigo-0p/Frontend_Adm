@@ -1,0 +1,52 @@
+
+.ARTICULO_upload > .ant-upload-list > .ant-upload {
+  width: 60% !important;
+  height: 300px !important;
+  margin-left: 60px;
+}
+
+
+.ARTICULO_upload > .ant-upload-list > .ant-upload-list-item-container > .ant-upload-list-item{
+  width: 100% !important;
+  height: 300px !important;
+}
+
+.ARTICULO_upload_icon{
+  padding-top: 5px;
+}
+
+.ARTICULO_upload_icon > .ant-upload-list > .ant-upload-list-item-container {
+  width: 100% !important;
+  height: 117px !important;
+}
+
+.ARTICULO_upload_icon > .ant-upload-list > .ant-upload-list-item-container > .ant-upload-list-item{
+  width: 100% !important;
+  height: 106px !important;
+}
+
+.pagina_ARTICULO{
+  float: left;
+  bottom: 85px;
+  position: fixed;
+  width: 80%;
+  margin-left: 4px;
+  color: #909294;
+}
+
+.input-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+
+.input-visible {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+
+.menu-button-barra{
+  padding: 1px;
+  border-radius: 5px;
+}

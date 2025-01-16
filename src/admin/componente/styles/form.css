@@ -104,3 +104,7 @@ h4.ant-typography, div.ant-typography-h4, div.ant-typography-h4>textarea, .ant-t
 .ant-form-item-label > label > label {
   color: black !important;
 }
+
+.ant-input-outlined.ant-input-disabled, .ant-input-outlined[disabled] {
+  color: rgb(0 0 0 / 71%);
+}

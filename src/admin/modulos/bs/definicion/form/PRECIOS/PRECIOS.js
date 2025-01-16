@@ -305,7 +305,7 @@ const PRECIOS =  React.memo(() => {
       let data = param === false ?  getParmas(false) : param;
       data.indice     = 0;
       data.limite     = data_len;  
-      data.cod_empresa = sessionStorage.cod_empresa;      
+      data.cod_empresa = sessionStorage.getItem('cod_empresa');      
       Main.activarSpinner()
       Main.Request(mainUrl.url_listar_cab,'POST',data).then((resp)=>{
         banRef.current.manejaF7 = false

@@ -375,7 +375,7 @@ const CONFIGUR =  React.memo(() => {
       let rowCount      = refDet.current.hotInstance.countRows();
       let rowIndex      = banRef.current.indexRow;
       let rowData       = refDet.current.hotInstance.view.settings.data[Main.nvl(rowIndex,0)];
-      let rowIndexFocus = rowIndex - 1 === -1 ? 0 : rowIndex - 1;
+      let rowIndexFocus = rowIndex - 1 < 0 ? 0 : rowIndex - 1;
 
       if(!rowData?.inserted && !rowData?.insertDefault){
 
@@ -399,7 +399,7 @@ const CONFIGUR =  React.memo(() => {
         Main.desactivarSpinner()
       }else if(rowCount === 1){
         banRef.current.idFocus = false;
-        refDet.current.hotInstance.alter('insert_row',rowIndex);
+        refDet.current.hotInstance.alter('remove_row',rowIndex);
         addRow({index:-1});
         Main.desactivarSpinner()
       }else{
@@ -485,9 +485,10 @@ const CONFIGUR =  React.memo(() => {
       data.limite     = data_len;  
       data.cod_empresa = sessionStorage.cod_empresa;      
       Main.Request(mainUrl.url_listar_cab,'POST',data).then((resp)=>{
-        banRef.current.manejaF7 = false
         Main.desactivarSpinner()
         if(resp.data.length > 0){
+          banRef.current.manejaF7 = false
+          Main.setBuscar(FormName,false);
           if(resp.length === 1) document.getElementById("total_registro").textContent = "1";
           else document.getElementById("total_registro").textContent = resp.data.length
           refCab.current.data    = resp.data;		
@@ -517,6 +518,7 @@ const CONFIGUR =  React.memo(() => {
       form.resetFields()
       banRef.current.manejaF7 = true;
       setFileList([])
+      Main.setBuscar(FormName,true);
       refDet.current?.hotInstance.loadData([])
       ver_bloqueo(false)
       setTimeout(()=>{      
@@ -739,6 +741,10 @@ const CONFIGUR =  React.memo(() => {
     }
     // eslint-disable-next-line 
   },[])
+  const setfocusRowIndex = React.useCallback((value,rowsIndex = 0)=>{
+    banRef.current.indexRow = rowsIndex < 0 ? 0 : rowsIndex;
+    // eslint-disable-next-line
+  },[])
 
   return ( 
     <Main.Layout defaultSelectedKeys={defaultSelectedKeys} defaultOpenKeys={defaultOpenKeys}>
@@ -777,6 +783,7 @@ const CONFIGUR =  React.memo(() => {
           refDet={refDet}
           setLastFocusNext={setLastFocusNext}
           setClickCell={setClickCell}
+          setfocusRowIndex={setfocusRowIndex}
           // ====
           handleKeyDown={handleKeyDown}
           handleCheckbox={handleCheckbox}

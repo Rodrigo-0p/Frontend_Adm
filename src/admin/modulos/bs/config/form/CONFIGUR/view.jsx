@@ -13,7 +13,7 @@ const View_Confugur =  React.memo((props) => {
     <Main.Form size="small" autoComplete="off" form={props.form} style={{ marginTop: '1px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '10px' }}>
       <Main.Row gutter={[8,2]}>
 
-        <Main.Col span={14} style={{padding:'40px'}}>
+        <Main.Col span={14} style={{padding:'40px'}} onClick={() => props.setClickCell()}>
           <Main.Row gutter={[12,2]}>
 
             <Main.Col span={16}>
@@ -52,6 +52,7 @@ const View_Confugur =  React.memo((props) => {
                 columnModal={mainColumn.columnModal}
                 columnNavigationEnter={mainColumn.nextEnter}
                 setClickCell={props.setClickCell}
+                setfocusRowIndex={props.setfocusRowIndex}
               />         
             </Main.Col>
 
@@ -94,8 +95,6 @@ const View_Confugur =  React.memo((props) => {
             
           </Main.ImgCrop>
         </Main.Col>
-        
-
 
         <Main.Col span={24} >
           <div className={`pagina_${props.FormName}`}>

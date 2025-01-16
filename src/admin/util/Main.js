@@ -36,7 +36,7 @@ import {
 	Modal			, Divider   , Radio   , Select ,
 	Checkbox	, List 		  , Tooltip	, Tabs 	 , 
 	Typography, DatePicker,	ConfigProvider   ,
-  Upload    , Image } 
+  Upload    , Image     , Avatar} 
                                  from 'antd';
 import locale	 		               from 'antd/lib/locale/es_ES';
 const { TabPane } = Tabs;
@@ -162,6 +162,20 @@ const finalFocusDet = async(hotInstance)=>{
   if (activeEditor) activeEditor.finishEditing();
 }
 
+const getDataModal = async (data, url) => {
+  try {
+    return await Request(url,"POST",data).then((resp) => {return resp.data});
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+const soloNumero = (e) =>{
+  var key = window.event ? e.which : e.keyCode;
+  if (key < 48 || key > 57) e.preventDefault();
+}
+
 const main = {
   mayuscula,
   _,
@@ -171,6 +185,7 @@ const main = {
   activarSpinner,
   desactivarSpinner,
   modal,
+  getDataModal,
 // ANT
   Spin,
   message,
@@ -188,7 +203,8 @@ const main = {
   List, 
   Tooltip, 
   Tabs, 
-  TabPane, 
+  TabPane,
+  Avatar,
   DatePicker,	
   ConfigProvider, 
   locale,
@@ -222,7 +238,8 @@ const main = {
   onKeyDownBloqueo,
   nvl,
   alert,
-  finalFocusDet
+  finalFocusDet,
+  soloNumero
 };
   
 export default main;

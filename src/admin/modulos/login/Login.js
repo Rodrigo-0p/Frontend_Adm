@@ -98,7 +98,8 @@ const Login =  React.memo(({history}) => {
     sessionStorage.setItem("img"            , row.img                  );
     sessionStorage.setItem("hash"           , row.hash                 );
     sessionStorage.setItem("cod_empresa"    , row.cod_empresa          );
-    sessionStorage.setItem("empresa"        , row.empresa              );
+    sessionStorage.setItem("cod_sucursal"   , row.cod_sucursal         );
+    sessionStorage.setItem("empresa"        , row.empresa              );    
     sessionStorage.setItem("desc_empresa"   , row.desc_empresa         );
     sessionStorage.setItem("menu"           , JSON.stringify(row.menu) ); 
     sessionStorage.setItem("cod_funcionario", row.cod_funcionario      );

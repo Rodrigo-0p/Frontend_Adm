@@ -7,9 +7,10 @@ import MainLogin        from '../admin/modulos/login/Login';
 // ADMINISTRACION
 import HOME             from '../admin/modulos/home/Home';
 import BS               from './modulo_ruta/BS'
+import ST               from './modulo_ruta/ST'
 
 const AppRouter = () => {
-  const route = Main._.union(BS);  
+  const route = Main._.union(BS,ST);  
   return (
     <Router>
       <Switch>

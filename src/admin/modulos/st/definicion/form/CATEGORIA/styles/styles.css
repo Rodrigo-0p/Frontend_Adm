@@ -1,0 +1,9 @@
+.pagina_CATEGORIA{
+  float: left;
+  bottom: 85px;
+  position: fixed;
+  width: 80%;
+  font-size: 12px;
+  margin-left: 4px;
+  color: #909294;
+}
