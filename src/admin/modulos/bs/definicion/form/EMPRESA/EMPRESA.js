@@ -74,6 +74,7 @@ const EMPRESAS  =  React.memo(() => {
     document.getElementById("mensaje").textContent        = "";
   }
   const addRow = () =>{
+    return
     refCab.current.delete     = [];
     banRef.current.manejaF7  = false;
     inicialForm()
@@ -246,8 +247,8 @@ const EMPRESAS  =  React.memo(() => {
   const saveImg= async (cod_empresa, acticatemensaje = true) => new Promise(async(resolve,reject)=>{
     if(fileList && fileList.length > 0 && fileList[0].uid !== '-1' && (uploadImg.name && uploadImg.name.length > 0)){
       try {
-        let extemcionImg    = uploadImg.name.split('.')[1];
-        let urlImg          = mainUrl.url_post_img+`/${cod_empresa}/${vname_img}${cod_empresa}.${extemcionImg}`;
+        let extencionImg    = uploadImg.name.split('.')[1];
+        let urlImg          = mainUrl.url_post_img+`/${cod_empresa}/${vname_img}${cod_empresa}.${extencionImg}`;
         await Main.RequestImg(urlImg, 'POST', uploadImg).then(async(resp) => {
           if(resp.status === 200){
             Main.setModifico(FormName);
@@ -263,6 +264,7 @@ const EMPRESAS  =  React.memo(() => {
                 });
             }                    
             setTimeout(()=>{
+              sessionStorage.setItem("extencion_img",extencionImg);
               setUploadImg([]);
               resolve(true)
             })
@@ -298,8 +300,10 @@ const EMPRESAS  =  React.memo(() => {
       activo : value?.activo === 'S' ? true : false,
     });
     if(Main.nvl(value.name_img, '-1') !=='-1'){
+      const imgUrl = `${process.env.REACT_APP_BASEURL}${value.name_img}?t=${new Date().getTime()}`;
       setFileList([{
-        url:process.env.REACT_APP_BASEURL+value.name_img
+        url:imgUrl
+        // process.env.REACT_APP_BASEURL+value.name_img
       }])
     }else{
       setFileList([])

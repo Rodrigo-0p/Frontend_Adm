@@ -592,8 +592,9 @@ const SERVICIO =  React.memo(() => {
     });
 
     if(Main.nvl(value.name_img,'-1') !== '-1'){
+      const imgUrl = `${process.env.REACT_APP_BASEURL}${value.name_img}?t=${new Date().getTime()}`;
       setFileList([{
-        url:process.env.REACT_APP_BASEURL+value.name_img
+        url:imgUrl
       }])
     }else{
       setFileList([])

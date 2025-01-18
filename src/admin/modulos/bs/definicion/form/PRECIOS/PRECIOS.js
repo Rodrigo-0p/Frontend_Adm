@@ -416,8 +416,12 @@ const PRECIOS =  React.memo(() => {
     });
 
   
-    let rimg      = Main.nvl(value.name_img_precios,null) !== null ? process.env.REACT_APP_BASEURL+value.name_img_precios             : null
-    let rimgFondo = Main.nvl(value.name_img_fondo_precios,null) !== null ? process.env.REACT_APP_BASEURL+value.name_img_fondo_precios : null
+    // let rimg      = Main.nvl(value.name_img_precios,null) !== null ? process.env.REACT_APP_BASEURL+value.name_img_precios             : null
+    // let rimgFondo = Main.nvl(value.name_img_fondo_precios,null) !== null ? process.env.REACT_APP_BASEURL+value.name_img_fondo_precios : null
+    
+    let rimg      = Main.nvl(value.name_img_precios,null) !== null       ? `${process.env.REACT_APP_BASEURL}${value.name_img_precios}?t=${new Date().getTime()}`       : null
+    let rimgFondo = Main.nvl(value.name_img_fondo_precios,null) !== null ? `${process.env.REACT_APP_BASEURL}${value.name_img_fondo_precios}?t=${new Date().getTime()}` : null
+    
     setFileList([{
       url: rimg
     }])

@@ -135,8 +135,10 @@ const ARTICULO = React.memo(() => {
     });
 
     if(Main.nvl(value.name_img,'-1') !== '-1'){
-      let data = [{url:process.env.REACT_APP_BASEURL+value.name_img}]
-      setFileList(data)    
+      const imgUrl = `${process.env.REACT_APP_BASEURL}${value.name_img}?t=${new Date().getTime()}`;
+      setFileList([{
+        url:imgUrl
+      }])    
       setKeyImg(1)  
     }else{
       setFileList([])
